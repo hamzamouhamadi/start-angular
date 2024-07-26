@@ -8,9 +8,7 @@ import { Course } from './model/course';
 })
 export class AppComponent {
   title = 'App-';
-  courseMe = COURSES[0];
-  courseMe2 = COURSES[1];
-  courseMe3 = COURSES[2];
+  courses = COURSES;
 
   onCourseSelected(course:Course){
     console.log

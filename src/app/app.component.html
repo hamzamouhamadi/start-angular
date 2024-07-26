@@ -1,8 +1,11 @@
-<div class="courses">
+<div class="courses" *ngIf="courses.length > 0; else noCourse">
   <course-card
+    *ngFor="let course of courses; index as i"
+    [course]="course"
+    [courseId]="i + 1"
     (courseSelected)="onCourseSelected($event)"
-    [course]="courseMe"
   ></course-card>
-  <course-card [course]="courseMe2"></course-card>
-  <course-card [course]="courseMe3"></course-card>
 </div>
+<ng-template #noCourse>
+  <h1>NO DATA</h1>
+</ng-template>
