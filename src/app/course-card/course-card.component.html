@@ -1,0 +1,10 @@
+<div class="course">
+  <div class="course-card">
+    <img [src]="course.iconUrl" alt="" width="300" />
+    <p class="title">{{ course.description }}</p>
+    <p class="description">
+      {{ course.longDescription }}
+    </p>
+    <button class="view-button" (click)="onCourseViewed()">View Course</button>
+  </div>
+</div>
