@@ -9,7 +9,7 @@ export class CourseCardComponent implements OnInit {
     @Input()
     course:Course;
     @Input()
-    courseId;
+    courseId :number;
     @Output()
     courseSelected = new EventEmitter<Course>();
   constructor() { }

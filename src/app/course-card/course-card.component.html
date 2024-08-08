@@ -1,10 +1,36 @@
 <div class="course">
   <div class="course-card">
     <h2 class="title">{{ courseId }}-{{ course.description }}</h2>
-    <img [src]="course.iconUrl" alt="" width="300" />
+    <img #courseImage [src]="course.iconUrl" alt="" width="300" />    
     <p class="description">
       {{ course.longDescription }}
     </p>
+    <div class="course-category" [ngSwitch]="" course.category>
+      <div
+        class="class-category"
+        style="font-weight: bold"
+        *ngSwitchCase="'BEGINNER'"
+      >
+        Beginner
+      </div>
+      <div
+        class="class-category"
+        style="font-weight: bold"
+        *ngSwitchCase="'INTERMEDIATE'"
+      >
+        Intermediate
+      </div>
+      <div
+        class="class-category"
+        style="font-weight: bold"
+        *ngSwitchCase="'ADVANCED'"
+      >
+        Advanced
+      </div>
+      <div class="class-category" style="font-weight: bold" *ngSwitchDefault>
+        All levels
+      </div>
+    </div>
     <button class="view-button" (click)="onCourseViewed()">View Course</button>
   </div>
 </div>
