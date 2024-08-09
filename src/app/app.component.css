@@ -1,5 +1,9 @@
-.courses{
+.courses {
     display: flex;
+    flex-direction: column;
+    gap: 4px;
+    justify-content: center;
+    align-items: center;
     justify-content: space-around;
     flex-wrap: wrap;
 }

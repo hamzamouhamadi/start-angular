@@ -1,10 +1,22 @@
 <div class="course">
   <div class="course-card">
-    <h2 class="title">{{ courseId }}-{{ course.description }}</h2>
-    <img #courseImage [src]="course.iconUrl" alt="" width="300" />    
-    <p class="description">
-      {{ course.longDescription }}
-    </p>
+    <div>
+      <h2 class="title">{{ course.description }}</h2>
+    </div>
+    
+    
+    <!-- <ng-content select=".course-image"
+    *ngIf="course.iconUrl; else blankImage">
+    </ng-content> -->
+    <img *ngIf="course.iconUrl; else noImage" width="300" [src]="course.iconUrl" >
+    
+    <ng-template #noImage>
+      <ng-container *ngTemplateOutlet="noImageTpl ;context : {description : course.description}"></ng-container>
+    </ng-template>
+    
+    <ng-content select=".course-description"></ng-content>
+     <!-- <p>{{course.longDescription}}</p> -->
+    
     <div class="course-category" [ngSwitch]="" course.category>
       <div
         class="class-category"
