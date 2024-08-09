@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { COURSES } from 'src/db-data';
 import { HttpClient, HttpParams } from '@angular/common/http'
 import { CourseCardComponent } from './course-card/course-card.component';
@@ -11,12 +11,13 @@ import { Course } from './model/course';
 export class AppComponent implements AfterViewInit {
   courses = COURSES;
 
-  // @ViewChildren(CourseCardComponent)
-  // cards;
-  @ViewChild('cardRef1', { read: ElementRef })
-  card1: ElementRef;
-  @ViewChild('courseImage')
-  courseImage: ElementRef
+  @ViewChildren(CourseCardComponent, { read: ElementRef })
+  cards: QueryList<ElementRef>
+
+  // @ViewChild('cardRef1', { read: ElementRef })
+  // card1: ElementRef;
+  // @ViewChild('courseImage')
+  // courseImage: ElementRef
 
 
   constructor() {
@@ -24,14 +25,26 @@ export class AppComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    console.log('courseImage', this.courseImage);
+
+    this.cards.changes.subscribe(
+      card =>
+        console.log("CARDS ::", card)
+    )
 
   }
 
   onCourseSelected(course: Course) {
-    console.log('card 111', this.card1);
+
   }
   onCourseEdited() {
+    this.courses.push({
+      id: 13,
+      description: 'Angular test test',
+      longDescription: "Learn Web Security Fundamentals and apply them to defend an Angular / Node Application from multiple types of attacks.",
+      iconUrl: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/security-cover-small-v2.png',
+      category: 'ADVANCED',
+      lessonsCount: 12
+    });
 
   }
 }

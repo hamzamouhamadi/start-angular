@@ -1,8 +1,9 @@
 <button (click)="onCourseEdited()">Edite Course</button>
-<div class="courses" *ngIf="courses.length > 0; else noCourse" #container>
+<div class="courses"  *ngIf="courses.length > 0; else noCourse" #container>
   <course-card
+    *ngFor="let course of courses"
     #cardRef1
-    [course]="courses[0]"
+    [course]="course"
     (courseSelected)="onCourseSelected($event)"
   ></course-card>
 </div>
