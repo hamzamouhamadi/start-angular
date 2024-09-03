@@ -5,14 +5,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CourseCardComponent } from './course-card/course-card.component';
 import { HttpClientModule } from '@angular/common/http';
-import { HighlightedDirective } from './directives/highlighted.directive'; // Import HttpClientModule
+import { HighlightedDirective } from './directives/highlighted.directive';
+import { MarqueeComponent } from './marquee/marquee.component';
+import { PresidentComponent } from './president/president.component';
+import { TestComponent } from './test/test.component';
+import { PageComponent } from './page/page.component'; // Import HttpClientModule
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CourseCardComponent,
-    HighlightedDirective
+    HighlightedDirective,
+    MarqueeComponent,
+    PresidentComponent,
+    TestComponent,
+    PageComponent
   ],
   imports: [
     BrowserModule,

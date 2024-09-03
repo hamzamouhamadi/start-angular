@@ -1,28 +1,3 @@
-<button (click)="onCourseEdited()">Edite Course</button>
-<!-- <div class="courses"  *ngIf="courses.length > 0; else noCourse" #container> -->
-<div class="courses"  *ngIf="courses[0] as course" #container>
-
-  <ng-template #blankImage let-courseName="description">
-    <p class="warn">{{courseName}} No image is available yet .</p>
-    <img src="https://via.placeholder.com/150" width="300" height="200" alt="No image available">
-  </ng-template>
-
-  <course-card
-    appHighlighted
-    #highlighter="hl"
-    (toggleHighlight) = "onToggle($event)"
-    #cardRef1
-    [noImageTpl]="blankImage"
-    [course]="courses[0]"
-    (courseSelected)="onCourseSelected($event)"
-  >
-  <course-image [src]="course.iconUrl"></course-image>
-  <div class="course-description"
-    (dblclick)="highlighter.toggle()">
-    {{course.longDescription}}
-  </div>
-  </course-card>
-</div>
-<ng-template #noCourse>
-  <h1>NO DATA</h1>
-</ng-template>
+<h1>-----------------------</h1>
+<router-outlet></router-outlet>
+<h1>-----------------------</h1>
